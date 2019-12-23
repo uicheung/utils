@@ -1,0 +1,66 @@
+{
+  "_from": "kscreenshot",
+  "_id": "kscreenshot@1.2.3",
+  "_inBundle": false,
+  "_integrity": "sha512-gBD6EosS2mdoQEjpCVYCOi7/bZzKpYZdeHfG0gjD1mLE1p1riJDaJo9GmlGR3AsPTE/jg4Kn/Ckask8xrvZtEQ==",
+  "_location": "/kscreenshot",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "kscreenshot",
+    "name": "kscreenshot",
+    "escapedName": "kscreenshot",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/kscreenshot/-/kscreenshot-1.2.3.tgz",
+  "_shasum": "af2f183ac4f077fdd9eaa38a36aacf75ef3d5565",
+  "_spec": "kscreenshot",
+  "_where": "D:\\utils",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/kejiacheng/kss/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "express": "^4.16.3",
+    "html2canvas": "^1.0.0-alpha.5",
+    "rxjs": "^6.3.2"
+  },
+  "deprecated": false,
+  "description": "kscreenshot ===========",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^3.1.1"
+  },
+  "homepage": "https://github.com/kejiacheng/kss#readme",
+  "license": "ISC",
+  "main": "dist/kss.js",
+  "name": "kscreenshot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kejiacheng/kss.git"
+  },
+  "scripts": {
+    "start": "webpack --mode=production"
+  },
+  "version": "1.2.3"
+}
