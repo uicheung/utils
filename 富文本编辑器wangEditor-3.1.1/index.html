@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<script src="./wangEditor-3.1.1/release/wangEditor.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="editor">
+			<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+		</div>
+
+
+		<script type="text/javascript">
+			var E = window.wangEditor
+			var editor = new E('#editor')
+			// 或者 var editor = new E( document.getElementById('editor') )
+
+			editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+			// 配置服务器端地址
+			// editor.customConfig.uploadImgServer = '/upload'
+
+
+			editor.create()
+		</script>
+	</body>
+</html>
