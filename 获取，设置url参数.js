@@ -28,4 +28,10 @@ getUrlPrmt: function (url) {
         _rs[name] = value;
     }
     return _rs;
+},
+module.exports = {
+	// 设置参数
+	setUrlPrmt,
+	//获取地址栏参数
+	getUrlPrmt
 }

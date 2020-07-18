@@ -15,9 +15,8 @@
 //    loadImg('load-img',100);
 //    window.onscroll = function() {
 //        ecDo.loadImg('load-img',100);
-//        }
+//    }
 // }
-
 
 // @className {string} 要遍历图片的类名
 // @num {number} 距离多少的时候开始加载 默认 0

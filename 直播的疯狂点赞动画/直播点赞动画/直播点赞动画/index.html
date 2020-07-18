@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="praise_bubble" id="praise_bubble">
+        <div class="bubble b1 bl1" >
+            <img src="./xin.png" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    let praiseBubble = document.getElementById("praise_bubble");
+    let last = 0;
+    function addPraise() {
+        const b = Math.floor(Math.random() * 3) + 1;
+        //   const bl = Math.floor(Math.random() * 11) + 1; // bl1~bl11
+        let d = document.createElement("div");
+        d.innerHTML = " <img src='./xin.png' alt=''>"
+        //  d.className = `bubble b${b} bl${bl}`;
+        d.className = `bubble bl${b}`;
+        d.dataset.t = String(Date.now());
+        praiseBubble.appendChild(d);
+    }
+    setInterval(() => {
+        addPraise();
+    }, 300)
+</script>
+<style>
+    .praise_bubble {
+        width: 100px;
+        height: 300px;
+        position: relative;
+        background-color: #f4f4f4;
+    }
+
+    .bubble {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+    }
+
+    .bl1 {
+        animation: bubble_1 4s linear 1 forwards;
+    }
+
+    .bl2 {
+        animation: bubble_1 2s linear 1 forwards;
+    }
+
+    .bl3 {
+        animation: bubble_1 3s linear 1 forwards;
+    }
+
+    /* .bl2 {
+        animation: bubble_2 $bubble_time linear .4s 1 forwards, bubble_big_2 $bubble_scale linear .4s 1 forwards, bubble_y $bubble_time linear .4s 1 forwards;
+    } */
+
+
+    @keyframes bubble_1 {
+        0% {
+            transform: scale(.3);
+            bottom: 0;
+        }
+
+        25% {
+            left: -8px;
+            transform: scale(1);
+
+        }
+
+        50% {
+            left: 8px
+        }
+
+        75% {
+            left: -15px;
+            opacity: 1;
+        }
+
+        100% {
+            left: 15px;
+            opacity: 0;
+            bottom: 300px;
+        }
+    }
+</style>
+
+</html>

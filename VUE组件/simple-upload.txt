@@ -1,0 +1,135 @@
+
+
+<template>
+  <!--
+      // github
+      https://github.com/simple-uploader/vue-uploader 
+      https://github.com/simple-uploader/Uploader
+      // npm
+      https://www.npmjs.com/package/vue-simple-upload
+
+      // main.js
+      import Vue from 'vue'
+      import uploader from 'vue-simple-uploader'
+      Vue.use(uploader)
+  -->
+
+  <div class="btn-handle">
+    <uploader
+      :options="uploaderOptions"
+      @file-success="onFileSuccess"
+      @upload-start="uploadStart"
+      @file-error="fileError"
+      @complete="uploaderComplete"
+      v-has
+      data-pcode="sbqddc"
+    >
+      <!-- 您的浏览器不支持HTML5 -->
+      <!-- <uploader-unsupport></uploader-unsupport> -->
+      <uploader-drop>
+        <uploader-btn :aria-disabled="true">
+          <span :disabled="uploadfileBtnStatus.disabled" v-loading="uploadfileBtnStatus.loading">
+            <i class="el-icon-upload"></i>
+            上传附件
+          </span>
+        </uploader-btn>
+      </uploader-drop>
+    </uploader>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      uploaderOptions: {
+        // https://github.com/simple-uploader/Uploader/tree/develop/samples/Node.js
+        target: process.env.VUE_APP_MYSELF + "/asset/v1/importDevice",
+        testChunks: false,
+        singleFile: true,
+        allowDuplicateUploads: true,
+        headers: {
+        //  sessionUId: utils.cookies.get("uId")
+        },
+        withCredentials: true
+      }
+    };
+  },
+  methods: {
+    async onFileSuccess(rootFile, file, response, chunk) {
+      this.changeUploadStatus(false);
+      let res = JSON.parse(response);
+      if (res.code == 0) {
+        if (res.data) {
+          this.importWarehouseListstatus = true;
+          this.importWarehouseListArr = res.data;
+        }
+
+     
+
+        // importWarehouseListstatus
+      }
+
+      this.$message({
+        type: res.code == 0 ? "info" : "error",
+        message: res.code == 0 ? "成功" : "上传失败"
+      });
+    },
+    uploaderComplete() {
+      this.changeUploadStatus(false);
+      this.changeLoading(false);
+    },
+    fileError() {
+      this.$message({
+        message: "上传过程出错了",
+        type: "error"
+      });
+      this.changeUploadStatus(false);
+      this.changeLoading(false);
+    },
+    uploadStart() {
+      this.changeUploadStatus(true);
+      this.changeLoading(true);
+      this.importWarehouseListArr = [];
+    },
+    changeUploadStatus(w) {
+      this.uploadfileBtnStatus.loading = w
+      this.uploadfileBtnStatus.disabled = w
+  },
+  }
+};
+</script>
+
+<style lang=scss scoped>
+.btn-handle {
+  margin-top: 10px;
+  .uploader {
+    display: inline-block;
+    margin: 0 10px;
+    border: none;
+    .uploader-drop {
+      padding: 0px;
+      border: none;
+      background: none;
+      overflow: inherit;
+      .uploader-btn {
+        border: 1px solid #dcdfe6;
+        color: #fff;
+        font-size: 12px;
+        padding: 7px 15px;
+        border-radius: 3px;
+        box-sizing: border-box;
+        box-sizing: border-box;
+        line-height: 1;
+        background-color: #67c23a;
+        border-color: #67c23a;
+      }
+      .uploader-btn:hover {
+        color: #409eff;
+        border-color: #c6e2ff;
+        background-color: #ecf5ff;
+      }
+    }
+  }
+}
+</style>
